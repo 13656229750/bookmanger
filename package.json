@@ -1,0 +1,18 @@
+{
+  "name": "bookmanage",
+  "version": "1.0.0",
+  "description": "1、图书管理有哪些功能？\r    1)、图书管理：C(create)U(update)R(read)D(delete)\r    2)、用户管理：CURD",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "liu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.3.3",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}

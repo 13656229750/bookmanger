@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script>
+        //删除图书
+        function delone(bkid) {
+            if (confirm('确定要删除吗？')) {
+                $.get('/book/delete', {
+                    "id": bkid
+                }, (d) => {
+                    // console.log(d);
+                    alert(d.msg);
+                    if (d.flag) { //删除成功要重新加载图书列表页
+                        location.href = "/book/list";
+                    }
+
+                }, 'json');
+            }
+
+        }
+
+        $(function() {
+            $.get('/book/getall', (d) => {
+                // console.log(d);
+                let trstr = '';
+                d.forEach((val) => {
+                    trstr += `<tr><td>${val.bkid}</td>
+                    <td>${val.bkname}</td>
+                    <td>${val.author}</td>
+                    <td>${val.price}</td>
+                    <td>
+                        <a href="/book/update/${val.bkid}">修改</a>
+                        <a href="javascript:;" onclick="delone(${val.bkid});">删除</a>
+                        </td></tr>`;
+                });
+
+                $("table").append(trstr);
+
+            }, 'json');
+        })
+    </script>
+</head>
+
+<body>
+    <div><strong>图书列表</strong></div>
+    <div>
+        <table style="width:80%;">
+            <tr>
+                <td>序号</td>
+                <td>书名</td>
+                <td>作者</td>
+                <td>价格</td>
+                <td><a href="/book/add">添加</a></td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

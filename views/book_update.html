@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div><strong>修改图书</strong></div>
+    <form action="/book/update" method="post">
+        <div>
+            <input type="hidden" name="curid" value="#ids#"> 书名：
+            <input value="#bookname#" type="text" name="bkname"><br> 作者：
+            <input value="#authors#" type="text" name="author"><br> 价格：
+            <input value="#prices#" type="text" name="price"><br><br>
+            <input type="submit" value="修改">&nbsp;
+            <input onclick="location.href='/book/list';" type="button" value="返回">
+        </div>
+    </form>
+</body>
+
+</html>
